@@ -29,13 +29,12 @@ function KareninAlani(kenaruzunlugu){
 			4. Hesaplanan çemberin çevresi döndürülecektir.
 		*/
 
-function CemberinCevresi(/* kodlar buraya */){
-	/* kodlar buraya */
+function CemberinCevresi(yaricap){
+	return 2*pi*yaricap;
 }
-
-
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
-
+console.log("G1");
+console.log(CemberinCevresi(5));
 
 
 
@@ -47,13 +46,12 @@ function CemberinCevresi(/* kodlar buraya */){
 			4. Hesaplanan çemberin alanı döndürülecektir.
 		*/
 		
-function CemberinAlani(/* kodlar buraya */){
-	/* kodlar buraya */
+function CemberinAlani(yaricap){
+	return pi*yaricap*yaricap;
 }
-
-
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
-
+console.log("G2");
+console.log(CemberinAlani(15));
 
 
 /* 	GÖREV 3:
@@ -70,45 +68,61 @@ function CemberinAlani(/* kodlar buraya */){
 	
 	
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
-
+console.log("sayı adedi",sayilar.length);
 
 
 	var ucetambolunenler, enkucuk, enbuyuk, ucebolunenlerintoplami, besyuzdenkucuksayilar, siralisayilar, tekraredensayilar;
 	
 	//3a çözümü
+	let kucuktenBuyuge=sayilar.sort((a,b)=>a-b);
 
-	/* kodlar buraya */
-	
-	
+for(let i=0;i<kucuktenBuyuge.length;i++){
+	enkucuk=kucuktenBuyuge[0];
+	enbuyuk=kucuktenBuyuge[kucuktenBuyuge.length-1];
+}console.log("G3-a");
+console.log("en küçük",enkucuk);
+console.log("en büyük",enbuyuk);
 	
 	// 3b çözümü:
-
-	/* kodlar buraya */
-		
-		
+ucetambolunenler=[];
+sayilar.forEach((sayi)=>{
+	if(sayi%3===0){
+ucetambolunenler.push(sayi);
+}});
+console.log("G3-b");
+console.log(ucetambolunenler)		
 		
 	//3c çözümü:
-	
-	/* kodlar buraya */
-
-	
+ucebolunenlerintoplami=ucetambolunenler.reduce((acc,curr)=>{
+	return acc+curr;
+},0);
+console.log("G3-c");
+console.log(ucebolunenlerintoplami);
 	
 	//3d çözümü
 	
-	/* kodlar buraya */
-
-
+besyuzdenkucuksayilar=sayilar.filter((sayi)=>sayi<500);
+console.log("G3-d");
+console.log(besyuzdenkucuksayilar);
 
 	//3e çözümü
-
-	/* kodlar buraya */
-	
-	
+siralisayilar=besyuzdenkucuksayilar.sort((a,b)=>a-b);
+console.log("G3-e");	
+console.log(siralisayilar);	
 	//3f çözümü
-	
-	/* kodlar buraya */
+	tekraredensayilar=[];
+	const tekrarSayiStr={};
+	sayilar.map((i)=>{  tekrarSayiStr[i]=!tekrarSayiStr[i]	?	1	:	tekrarSayiStr[i]+1;
+	});
+for (let key in tekrarSayiStr){
+	if(tekrarSayiStr[key]>1){
+		tekraredensayilar.push(
+		`${key} sayısı ${tekrarSayiStr[key]} kere tekrar edilmiştir`);
+	}
+}
 
-
+console.log("G3-f");
+console.log(tekraredensayilar);
 
 
 	
